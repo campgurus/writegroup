@@ -27,3 +27,10 @@
 
 <%= link_to 'Edit', edit_work_shop_path(@work_shop) %> |
 <%= link_to 'Back', work_shops_path %>
+
+<h3>Upcoming <%= @work_shop.name %>: </h3>
+<ul>
+  <% @work_shop.events.each do |event| %>
+    <li><%= link_to event.start_time.strftime("%A, %b %d"), event %></li>
+  <% end %>
+</ul>
