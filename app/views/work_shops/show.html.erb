@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @work_shop.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @work_shop.description %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @work_shop.location_id %>
+</p>
+
+<p>
+  <strong>Drop in:</strong>
+  <%= @work_shop.drop_in %>
+</p>
+
+<p>
+  <strong>Leader:</strong>
+  <%= @work_shop.leader_id %>
+</p>
+
+<%= link_to 'Edit', edit_work_shop_path(@work_shop) %> |
+<%= link_to 'Back', work_shops_path %>

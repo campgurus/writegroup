@@ -105,3 +105,32 @@ if State.count == 0
   end
   print "\n"
 end
+
+if Location.count == 0
+  puts "Adding some locations"
+  locations =
+    [
+      {name: "Montclair Public Library", street_address: "50 South Fullerton Ave", city: "Montclair", state_id: 31, zipcode: "07042" },
+      {name: "Panera Bread", street_address: "15 Bloomfield Ave", city: "Montclair", state_id: 31, zipcode: "07042"}
+    ]
+
+  locations.each do |location|
+    Location.create(location)
+  end
+end
+
+if WorkShop.count == 0
+  puts "Creating Some Workshops..."
+  events =
+  [
+    {name: "MEMOIR GROUPS", description: 'Two groups meet alternate Wednesdays, 10-12, Library Conf. Room –Group 1 on 11/23 & 12/7; Group 2 on 11/30 & 12/14. No drop-ins.', drop_in: false},
+    {name: "PROSE CRITIQUE GROUP", description: "Wednesdays, 6:30 PM at various eateries around Montclair, including Panera Bread and Manny’s Diner. Critique group for writers of any prose form. Writers share 10-page submissions in advance so meeting time can focus on feedback. Dinner (for those interested) at 6:30, critique at 7. No drop-ins. Limited space and the group is now full. Contact co-hosts if interested in joining: Melissa at meljsullivan@gmail.com or Ren at ironlime@gmail.com.", drop_in: false},
+    {name: "NOVELIST CRITIQUE GROUPS", description: "Critiques for novelists & would-be novelists. No drop-ins.  Thursday Novel Group meets 10 am-1 pm, Library Conf. Rm. Full now; if interested, contact Kathleen McCoy at mccoy3a@gmail.com. Friday Novel Group meets from 10-12:30, and resumes after New Year’s. If interested, contact carlselinger1@gmail.com.", drop_in: false},
+    {name: "FREE-FOR-ALLS FOR WRITERS", description: "Thursdays, 7-8:45 pm, Library Conf. Rm. Various writing events"},
+    {name: 'FREE WRITE WRITING WORKSHOP', description: "Every Saturday morning, 10:15-1, Conf. Room. Write creatively to prompts! (Free Write Leader Rose Blessing at definitionsocial@gmail.com.)", drop_in: true}
+  ]
+
+  events.each do |workshop|
+    WorkShop.create(workshop)
+  end
+end
