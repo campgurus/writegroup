@@ -1,35 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<h1>Upcoming Write Group Events:</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Drop in</th>
-      <th>Leader</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <% if @events %>
     <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.Location_id %></td>
-        <td><%= event.drop_in %></td>
-        <td><%= event.leader_id %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if event.start_time? %>
+        <%= link_to event.start_time.strftime("%A, %b %d"), event %>
+      <% end %>
+      <ul>
+        <% if event.work_shop_id? %>
+          <li><%= link_to WorkShop.find(event.work_shop_id).name, WorkShop.find(event.work_shop_id) %></li>
+        <% end %>
+        <% if event.description? %>
+          <li><%= event.description %></li>
+        <% end %>
+        <% if event.Location_id? %>
+          <li><%= Location.find(event.Location_id).name %></li>
+        <% end %>
+        <% if event.drop_in? %>
+          <li><%= event.drop_in %></li>
+        <% end %>
+        <% if event.leader_id? %>
+          <li><%= event.leader_id %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </tbody>
-</table>
-
+  <% else %>
+    <h3>There are currently no events scheduled for the Write Group.</h3>
+  <% end %>
 <br>
 
 <%= link_to 'New Event', new_event_path %>
