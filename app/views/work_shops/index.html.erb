@@ -17,14 +17,11 @@
   <tbody>
     <% @work_shops.each do |work_shop| %>
       <tr>
-        <td><%= work_shop.name %></td>
+        <td><%= link_to work_shop.name, work_shop %></td>
         <td><%= work_shop.description %></td>
         <td><%= work_shop.location_id %></td>
         <td><%= work_shop.drop_in %></td>
         <td><%= work_shop.leader_id %></td>
-        <td><%= link_to 'Show', work_shop %></td>
-        <td><%= link_to 'Edit', edit_work_shop_path(work_shop) %></td>
-        <td><%= link_to 'Destroy', work_shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
